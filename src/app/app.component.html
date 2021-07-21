@@ -1,0 +1,26 @@
+<style>
+    .success {
+        font-style: italic;
+        color: green;
+    }
+    
+    .error {
+        font-style: italic;
+        color: red;
+    }
+    
+    .pending {
+        color: black;
+    }
+</style>
+
+<main>
+    <h1>Type Check</h1>
+    <p #value>
+        <span *ngFor="let letter of sentence.split(''); let i = index" [class]="compare(letter, i)">{{ letter
+            }}</span>
+    </p>
+    <button (click)="getRandomWord(); input.value= ''">Different Text ?</button>
+    <input autofocus class="input" type="text" placeholder="Start typing the text above" #input (input)="onChange(input.value, value)">
+    <p *ngIf="input.value === sentence" class="success">You Win 🎉</p>
+</main>
